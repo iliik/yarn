@@ -6,7 +6,8 @@ function App() {
         <div>
             Hello
             <Star/>
-            <Accordion/>
+            <Accordion title={"Menu"} collapsed={true}/>
+            <Accordion title={"User"} collapsed={false}/>
         </div>
     );
 }
@@ -17,37 +18,52 @@ function Star() {
     );
 }
 
-function Accordion() {
-    console.log("Accordion rendering")
-    return (
-
-    <div>
-      <AccordionTitle/>
-      <AccardionBody/>
-    </div>
-);
+type AccordionPropsType = {
+    title: string
+    collapsed: boolean
 }
 
-function AccordionTitle() {
+function Accordion(props: AccordionPropsType) {
+    console.log("Accordion rendering")
+    if (props.collapsed) {
+        return<>
+            <AccordionTitle title={props.title}/>
+        </>
+    } else {
+        return(
+            <>
+                <AccordionTitle title={props.title}/>
+                <AccardionBody/>
+            </>
+        )
+
+    }
+
+
+type AccordionTitlePropsType = {
+    title: string
+
+}
+
+function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
     return (
-        <div>
-            <h3>Меню</h3>
-        </div>
+        <h3>{props.title}</h3>
     );
 }
+
 
 function AccardionBody() {
     console.log("AccardionBody rendering")
     return (
-        <div>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+
     );
+}
 }
 
 export default App;
