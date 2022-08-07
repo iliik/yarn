@@ -26,11 +26,11 @@ type AccordionPropsType = {
 function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendering")
     if (props.collapsed) {
-        return<>
+        return <>
             <AccordionTitle title={props.title}/>
         </>
     } else {
-        return(
+        return (
             <>
                 <AccordionTitle title={props.title}/>
                 <AccardionBody/>
@@ -40,30 +40,30 @@ function Accordion(props: AccordionPropsType) {
     }
 
 
-type AccordionTitlePropsType = {
-    title: string
+    type AccordionTitlePropsType = {
+        title: string
 
-}
+    }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("AccordionTitle rendering")
-    return (
-        <h3>{props.title}</h3>
-    );
-}
+    function AccordionTitle(props: AccordionTitlePropsType) {
+        console.log("AccordionTitle rendering")
+        return (
+            <h3>{props.title}</h3>
+        );
+    }
 
 
-function AccardionBody() {
-    console.log("AccardionBody rendering")
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
+    function AccardionBody() {
+        console.log("AccardionBody rendering")
+        return (
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
 
-    );
-}
+        );
+    }
 }
 
 export default App;
