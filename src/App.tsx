@@ -1,69 +1,31 @@
 import React from 'react';
 import './App.css';
+import {Accordion} from "./component/Accordion/Accordion";
+import {Rating} from "./component/Rating/Rating";
+
 
 function App() {
     return (
         <div>
-            Hello
-            <Star/>
-            <Accordion title={"Menu"} collapsed={true}/>
-            <Accordion title={"User"} collapsed={false}/>
+            <PageTitle title={'Hii broo'}/>
+            <PageTitle title={'My Frend'}/>
+            <Rating value={3}/>
+            <Accordion titleValue={'Menu'} collapsed={true}/>
+            <Accordion titleValue={'Users'} collapsed={false}/>
+            <Rating value={1}/>
         </div>
     );
 }
 
-function Star() {
-    return (
-        <div>Star</div>
-    );
-}
-
-type AccordionPropsType = {
-    title: string
-    collapsed: boolean
-}
-
-function Accordion(props: AccordionPropsType) {
-    console.log("Accordion rendering")
-    if (props.collapsed) {
-        return <>
-            <AccordionTitle title={props.title}/>
-        </>
-    } else {
-        return (
-            <>
-                <AccordionTitle title={props.title}/>
-                <AccardionBody/>
-            </>
-        )
-
-    }
-
-
-    type AccordionTitlePropsType = {
-        title: string
-
-    }
-
-    function AccordionTitle(props: AccordionTitlePropsType) {
-        console.log("AccordionTitle rendering")
-        return (
-            <h3>{props.title}</h3>
-        );
-    }
-
-
-    function AccardionBody() {
-        console.log("AccardionBody rendering")
-        return (
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-
-        );
-    }
-}
 
 export default App;
+
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
+    return (
+        <h1>{props.title}</h1>
+    )
+}
