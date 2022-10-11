@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-import {OnOff} from "./component/OnOff/OnOff";
-import {UncontrolledRating} from "./component/UncontrolledRating/UncontrolledRating";
-import {UncontrolledAccordion} from "./component/UncontrolledAccordion/UncontrolledAccordion";
 import {RaitingValueType, Rating} from "./component/Rating/Rating";
 import {Accordion} from "./component/Accordion/Accordion";
-import {UncontrolledOnOff} from "./component/UncontrolledOnOff/UncontroledOnOff";
 
 
 function App() {
@@ -15,12 +11,13 @@ function App() {
     return (
         <div className={'App'}>
             {/*<UncontrolledOnOff on={uncontrolledOnOff} onChenge={(on)=>{setUncontrolledOnOff(on)}}/>*/}
-            {/*<Accordion */}
-            {/*    titleValue={'Menu'}*/}
-            {/*    collapsed={accordionCollapssed}*/}
-            {/*    onChange={()=>{setaccordionCollapssed(!accordionCollapssed)}}/>*/}
-            {/*<Rating value={raitingValue} onClick={setraitingValue}/>*/}
-            <OnOff onChange={setUncontrolledOnOff}/> {uncontrolledOnOff.toString()}
+            <Accordion
+                titleValue={'Menu'}
+                collapsed={accordionCollapssed}
+                onChange={()=>{setaccordionCollapssed(!accordionCollapssed)}}/>
+            <Rating value={raitingValue} onClick={setraitingValue}/>
+            {/*<OnOff onChange={setUncontrolledOnOff} {uncontrolledOnOff.toString()}/>*/}
+
         </div>
     );
 }

@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import s from './OnOff.module.css'
 
 type PropsType ={
-    on:boolean
    onChenge:(on:boolean)=>void
 }
 export const UncontrolledOnOff = (props:PropsType) => {
+    let [on,seton]=useState(false)
     const onStyle = {
         width: "30px",
         height: "20px",
@@ -13,7 +13,7 @@ export const UncontrolledOnOff = (props:PropsType) => {
         display: "inline-block",
         marginLeft: "10px",
         padding: "2px",
-        backgroundColor: props.on ? "green" : "white"
+        backgroundColor: on ? "green" : "white"
     }
 
     const offStyle = {
@@ -23,7 +23,7 @@ export const UncontrolledOnOff = (props:PropsType) => {
         display: "inline-block",
         marginLeft: "2px",
         padding: "2px",
-        backgroundColor: props.on ? "white" : "red"
+        backgroundColor: on ? "white" : "red"
     }
 
     const indicatorStyle = {
@@ -33,7 +33,7 @@ export const UncontrolledOnOff = (props:PropsType) => {
         border: "1px  solid black",
         display: "inline-block",
         marginLeft: "5px",
-        backgroundColor: props.on ? "green" : "red"
+        backgroundColor: on ? "green" : "red"
     }
 
     return (

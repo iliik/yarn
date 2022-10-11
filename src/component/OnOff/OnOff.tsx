@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from './OnOff.module.css'
 
 type PropsType = {
+    on:boolean
     onChange: (on: boolean) => void
 }
 
