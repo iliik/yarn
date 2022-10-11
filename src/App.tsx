@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {RaitingValueType, Rating} from "./component/Rating/Rating";
 import {Accordion} from "./component/Accordion/Accordion";
+import {UncontrolledAccordion} from "./component/UncontrolledAccordion/UncontrolledAccordion";
 
 
 function App() {
@@ -10,14 +11,8 @@ function App() {
     let [uncontrolledOnOff, setUncontrolledOnOff] = useState<boolean>(false)
     return (
         <div className={'App'}>
-            {/*<UncontrolledOnOff on={uncontrolledOnOff} onChenge={(on)=>{setUncontrolledOnOff(on)}}/>*/}
-            <Accordion
-                titleValue={'Menu'}
-                collapsed={accordionCollapssed}
-                onChange={()=>{setaccordionCollapssed(!accordionCollapssed)}}/>
-            <Rating value={raitingValue} onClick={setraitingValue}/>
-            {/*<OnOff onChange={setUncontrolledOnOff} {uncontrolledOnOff.toString()}/>*/}
 
+            <UncontrolledAccordion titleValue={'User'}/>
         </div>
     );
 }
