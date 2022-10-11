@@ -1,32 +1,46 @@
-import React, {useState} from "react";
+import React, {useMemo, useState} from 'react';
 
 export default {
-    title: 'React.memo demo',
+    title: 'useMemo',
 }
-const NewMessagesCounter = (props: { count: number }) => {
-    return <div>{props.count}</div>
-}
-const UsersSecret  = (props: { users: Array<string> }) => {
-    return <div>{
-        props.users.map((u, i) => <div key={i}>{u}</div>)
-    }</div>
-}
-const Users = React.memo(UsersSecret)
 
 export const Example1 = () => {
-    const [counter, setCounter] = useState(0)
-    const [users, setUsers] = useState(['Dima', 'Valera', "Artem"])
+    const [a, setA] = useState <number>(5)
+    const [b, setB] = useState<number>(5)
 
-    const addUser = () => {
-        const newUsers = [...users,'Sveta' + new Date ().getDate()]
-        setUsers(newUsers)
+    let resultA = 1
+    let resultB = 1
+
+
+    resultA =  useMemo(() => {
+        let tempResultA = 1
+        for(let i = 1; i <= a; i++) {
+            let fake = 0;
+            while (fake < 10000000) {
+                fake++;
+                const fakeValue = Math.random()
+            }
+            tempResultA = tempResultA * i
+        }
+        return tempResultA;
+
+    },[a])
+
+
+    for(let i = 1; i <= b; i++){
+        resultB = resultB * i
     }
-    users.push('Sveta' + new Date ().getDate())
 
-    return <>
-        <button onClick={()=>setCounter(counter+1)}>+</button>
-        <button onClick={addUser}>add</button>
-        <NewMessagesCounter count={counter}/>
-        <Users users={users}/>
+    return<>
+
+        <input value={a} onChange={(e)=>setA(+e.currentTarget.value)}/>
+        <input value={b} onChange={(e)=>setB(+e.currentTarget.value)}/>
+<hr/>
+        <div>
+            Result for a: {resultA}
+        </div>
+        <div>
+            Result for b: {resultB}
+        </div>
     </>
 }
