@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 
-type  RatingPropsType = {}
 
-export function UncontrolledRating(props: RatingPropsType) {
+export function UncontrolledRating() {
 
     let [value, setvalue] = useState(0)
     return (
         <div>
-            <Star selected={value > 0} setvalue={()=>{setvalue(1)}} />
+            <Star selected={value > 0} setvalue={()=>{setvalue(1)}}  />
             <Star selected={value > 1} setvalue={()=>{setvalue(2)}} />
             <Star selected={value > 2} setvalue={()=>{setvalue(3)}} />
             <Star selected={value > 3} setvalue={()=>{setvalue(4)}}/>
@@ -26,5 +25,8 @@ export function UncontrolledRating(props: RatingPropsType) {
         {props.selected ? <b>star </b> : ' star '} </span>
     }
 }
+
+
+
 
 

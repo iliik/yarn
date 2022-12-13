@@ -3,6 +3,7 @@ import './App.css';
 import {RaitingValueType, Rating} from "./component/Rating/Rating";
 import {Accordion} from "./component/Accordion/Accordion";
 import {UncontrolledAccordion} from "./component/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledRating} from "./component/UncontrolledRating/UncontrolledRating";
 
 
 function App() {
@@ -11,17 +12,11 @@ function App() {
     let [uncontrolledOnOff, setUncontrolledOnOff] = useState<boolean>(false)
     return (
         <div className={'App'}>
-
+            <input/>
+            <UncontrolledRating/>
             <UncontrolledAccordion titleValue={'User'}/>
         </div>
     );
-}
-
-
-export default App;
-
-type PageTitlePropsType = {
-    title: string
 }
 
 function PageTitle(props: PageTitlePropsType) {
@@ -29,3 +24,10 @@ function PageTitle(props: PageTitlePropsType) {
         <h1>{props.title}</h1>
     )
 }
+
+type PageTitlePropsType = {
+    title: string
+}
+
+
+export default App;
