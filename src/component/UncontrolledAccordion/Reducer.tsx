@@ -1,4 +1,4 @@
-export type ActionType = {
+ export type ActionType = {
     type: string
 }
 export const TOGGLE_COLLAPSED = "TOGGLE-CONSTANT"

@@ -4,40 +4,39 @@ export default {
     title: 'useMemo',
 }
 
-const UsersSecret = (props: { users: Array<string> }) => {
-    return <div>{
-        props.users.map((u, i) => <div key={i}>{u}</div>)
-    }</div>
-}
+export const Exemple1 = () => {
+    const [a, setA] = useState(5)
+    const [b, setB] = useState(5)
 
-const Users = React.memo(UsersSecret)
 
-export const HelpsToReactMemo = () => {
-    const [counter, setCounter] = useState(0)
-    const [books, setBooks] = useState(['React', 'JS', "CSS", 'HTML'])
+    const resultA = 1
+    const resultB = 1
 
-    const newArray = useMemo(() => {
-        const newArray = books.filter(u => u.toLowerCase().indexOf('a') > -1)
-        return newArray
-    }, [books])
+    resultA = useMemo(() => {
+        let tempResultA = 1
+        for (let i = 1; i <= a; i++) {
+            let fake = 0
+            while (fake < 1000000) {
+                fake++
+                const fakeValue = Math.random()
+            }
+            tempResultA = tempResultA * i
+        }
+        return tempResultA
+    }, [a])
 
-    const addBook = () => {
-        const newUser = [...books, 'Angular' + new Date().getTime()]
-        setBooks(newUser)
+
+    for (let i = 1; i <= b; i++) {
+        resultB = resultB * i
     }
 
     return <>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={() => addBook()}> addBook</button>
-        {counter}
-        <Book books={newArray}/>
+        <input value={a} onChange={(e) => setA(Number(e.currentTarget.value)}/>
+        <input value={b} onChange={(e) => setB(e.currentTarget.value)}/>
+        <div>
+            Resilt for a : {}
+        </div>
+        <div> Resilt for b : {}
+        </div>
     </>
 }
-
-
-const BooksSecret = (props: { books: Array<string> }) => {
-    return <div>{
-        props.books.map((book, i) => <div key={i}>{book}</div>)
-    }</div>
-}
-const Book = React.memo(BooksSecret)

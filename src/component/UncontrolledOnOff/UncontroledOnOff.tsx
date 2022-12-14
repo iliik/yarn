@@ -1,10 +1,9 @@
 import React, {useState} from "react";
-import s from './OnOff.module.css'
 
 type PropsType ={
    onChenge:(on:boolean)=>void
 }
-export const UncontrolledOnOff = (props:PropsType) => {
+export const UncontrolledOnOff = React.memo((props:PropsType) => {
     let [on,seton]=useState(false)
     const onStyle = {
         width: "30px",
@@ -46,4 +45,4 @@ export const UncontrolledOnOff = (props:PropsType) => {
             }}></div>
         </div>
     )
-}
+} )

@@ -7,14 +7,15 @@ export default {
 }
 
 export const WithValue = () => {
-    const [value, setValue] = useState('2')
+    const [value, setValue] = useState('1')
     return <>
         <Select value={value}
                 onChange={setValue}
                 items={[
                     {value: '1', title: "Minsk"},
                     {value: '2', title: "Moscow"},
-                    {value: '3', title: "Kiev"}
+                    {value: '3', title: "Kiev"},
+                    {value: '4', title: "Belarus"}
                 ]}/>
     </>
 }
@@ -28,7 +29,8 @@ export const WithouValue = () => {
             items={[
                 {value: '1', title: "Minsk"},
                 {value: '2', title: "Moscow"},
-                {value: '3', title: "Kiev"}
+                {value: '3', title: "Kiev"},
+                {value: '4', title: "Belarus"}
             ]}/>
     </>
 }

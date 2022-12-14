@@ -1,11 +1,11 @@
 import React, {useReducer} from "react";
-import {reducer, TOGGLE_COLLAPSED} from "./Reducer";
+import {ActionType, reducer, TOGGLE_COLLAPSED} from "./Reducer";
 
 export type AccordionPropsType = {
     titleValue: string
 }
 
-export function UncontrolledAccordion(props: AccordionPropsType) {
+export const  UncontrolledAccordion = React.memo((props: AccordionPropsType) => {
 
     let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
@@ -17,7 +17,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
             {!state.collapsed && <AccordionBody/>}
         </div>
     )
-}
+} )
 
 type AccordionTitlePropsType = {
     title: string
@@ -42,6 +42,5 @@ function AccordionBody() {
 
     );
 }
-
 
 

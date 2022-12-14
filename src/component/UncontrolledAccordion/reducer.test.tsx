@@ -1,4 +1,5 @@
 import {reducer, StateType, TOGGLE_COLLAPSED} from "./Reducer";
+import {action} from "@storybook/addon-actions";
 
 test('collapsed should be true', () => {
     const state: StateType = {
